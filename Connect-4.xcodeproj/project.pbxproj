@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17D3704E27A8923735FCC580 /* Pods_Connect_4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD77DC9649EE3FC53A89CABB /* Pods_Connect_4.framework */; };
 		A94EC73A253CD6BC00EAF6B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC739253CD6BC00EAF6B1 /* AppDelegate.swift */; };
 		A94EC73C253CD6BC00EAF6B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC73B253CD6BC00EAF6B1 /* SceneDelegate.swift */; };
 		A94EC73E253CD6BC00EAF6B1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC73D253CD6BC00EAF6B1 /* GameViewController.swift */; };
@@ -22,6 +23,13 @@
 		A94EC771253CDA4400EAF6B1 /* GameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC770253CDA4400EAF6B1 /* GameRouter.swift */; };
 		A94EC774253CDAC600EAF6B1 /* GameAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC773253CDAC600EAF6B1 /* GameAssembly.swift */; };
 		A94EC778253CDBAF00EAF6B1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC777253CDBAF00EAF6B1 /* Circle.swift */; };
+		A94EC78C253F6E6200EAF6B1 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC78B253F6E6200EAF6B1 /* Board.swift */; };
+		A94EC79A2540AECB00EAF6B1 /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7992540AECB00EAF6B1 /* GameBoardView.swift */; };
+		A94EC79E2540AF7700EAF6B1 /* GameBoardViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC79D2540AF7700EAF6B1 /* GameBoardViewInput.swift */; };
+		A94EC7A12540AFB500EAF6B1 /* GameBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7A02540AFB500EAF6B1 /* GameBoardPresenter.swift */; };
+		A94EC7A42540AFC000EAF6B1 /* GameBoardPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7A32540AFC000EAF6B1 /* GameBoardPresenterProtocols.swift */; };
+		A94EC7A92540B04900EAF6B1 /* GameBoardInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7A82540B04900EAF6B1 /* GameBoardInteractorInput.swift */; };
+		A94EC7AC2540B05200EAF6B1 /* GameBoardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7AB2540B05200EAF6B1 /* GameBoardInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +50,16 @@
 		A94EC770253CDA4400EAF6B1 /* GameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRouter.swift; sourceTree = "<group>"; };
 		A94EC773253CDAC600EAF6B1 /* GameAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAssembly.swift; sourceTree = "<group>"; };
 		A94EC777253CDBAF00EAF6B1 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		A94EC78B253F6E6200EAF6B1 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		A94EC7992540AECB00EAF6B1 /* GameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
+		A94EC79D2540AF7700EAF6B1 /* GameBoardViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardViewInput.swift; sourceTree = "<group>"; };
+		A94EC7A02540AFB500EAF6B1 /* GameBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardPresenter.swift; sourceTree = "<group>"; };
+		A94EC7A32540AFC000EAF6B1 /* GameBoardPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardPresenterProtocols.swift; sourceTree = "<group>"; };
+		A94EC7A82540B04900EAF6B1 /* GameBoardInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardInteractorInput.swift; sourceTree = "<group>"; };
+		A94EC7AB2540B05200EAF6B1 /* GameBoardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardInteractor.swift; sourceTree = "<group>"; };
+		AD77DC9649EE3FC53A89CABB /* Pods_Connect_4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8708DC216F78253B29EF488 /* Pods-Connect-4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect-4.debug.xcconfig"; path = "Target Support Files/Pods-Connect-4/Pods-Connect-4.debug.xcconfig"; sourceTree = "<group>"; };
+		FE0BE67B5F7576D690D51D91 /* Pods-Connect-4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect-4.release.xcconfig"; path = "Target Support Files/Pods-Connect-4/Pods-Connect-4.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +67,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D3704E27A8923735FCC580 /* Pods_Connect_4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12D547B17F98B8EBBE375AC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD77DC9649EE3FC53A89CABB /* Pods_Connect_4.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A94EC72D253CD6BC00EAF6B1 = {
 			isa = PBXGroup;
 			children = (
 				A94EC738253CD6BC00EAF6B1 /* Connect-4 */,
 				A94EC737253CD6BC00EAF6B1 /* Products */,
+				C25EBD8456156CB7FFD57571 /* Pods */,
+				12D547B17F98B8EBBE375AC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +127,7 @@
 		A94EC756253CD81700EAF6B1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A94EC7922540AE9B00EAF6B1 /* GameBoard */,
 				A94EC758253CD82800EAF6B1 /* Game */,
 			);
 			path = Modules;
@@ -178,8 +208,79 @@
 			isa = PBXGroup;
 			children = (
 				A94EC777253CDBAF00EAF6B1 /* Circle.swift */,
+				A94EC78B253F6E6200EAF6B1 /* Board.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		A94EC7922540AE9B00EAF6B1 /* GameBoard */ = {
+			isa = PBXGroup;
+			children = (
+				A94EC7982540AEBA00EAF6B1 /* View */,
+				A94EC7972540AEB600EAF6B1 /* Managers */,
+				A94EC7962540AEB200EAF6B1 /* Presenter */,
+				A94EC7952540AEAD00EAF6B1 /* Interactor */,
+				A94EC7942540AEA700EAF6B1 /* Router */,
+				A94EC7932540AEA300EAF6B1 /* Assembly */,
+			);
+			path = GameBoard;
+			sourceTree = "<group>";
+		};
+		A94EC7932540AEA300EAF6B1 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		A94EC7942540AEA700EAF6B1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		A94EC7952540AEAD00EAF6B1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A94EC7A82540B04900EAF6B1 /* GameBoardInteractorInput.swift */,
+				A94EC7AB2540B05200EAF6B1 /* GameBoardInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		A94EC7962540AEB200EAF6B1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A94EC7A02540AFB500EAF6B1 /* GameBoardPresenter.swift */,
+				A94EC7A32540AFC000EAF6B1 /* GameBoardPresenterProtocols.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A94EC7972540AEB600EAF6B1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A94EC7982540AEBA00EAF6B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A94EC7992540AECB00EAF6B1 /* GameBoardView.swift */,
+				A94EC79D2540AF7700EAF6B1 /* GameBoardViewInput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C25EBD8456156CB7FFD57571 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8708DC216F78253B29EF488 /* Pods-Connect-4.debug.xcconfig */,
+				FE0BE67B5F7576D690D51D91 /* Pods-Connect-4.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,9 +290,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A94EC74A253CD6BF00EAF6B1 /* Build configuration list for PBXNativeTarget "Connect-4" */;
 			buildPhases = (
+				CE00CBA6B43C3633FC1FED8A /* [CP] Check Pods Manifest.lock */,
 				A94EC732253CD6BC00EAF6B1 /* Sources */,
 				A94EC733253CD6BC00EAF6B1 /* Frameworks */,
 				A94EC734253CD6BC00EAF6B1 /* Resources */,
+				2EA818941420569D045885C0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,21 +349,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2EA818941420569D045885C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Connect-4/Pods-Connect-4-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Connect-4/Pods-Connect-4-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Connect-4/Pods-Connect-4-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE00CBA6B43C3633FC1FED8A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Connect-4-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A94EC732253CD6BC00EAF6B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A94EC771253CDA4400EAF6B1 /* GameRouter.swift in Sources */,
+				A94EC7AC2540B05200EAF6B1 /* GameBoardInteractor.swift in Sources */,
+				A94EC7A42540AFC000EAF6B1 /* GameBoardPresenterProtocols.swift in Sources */,
+				A94EC7A92540B04900EAF6B1 /* GameBoardInteractorInput.swift in Sources */,
+				A94EC79E2540AF7700EAF6B1 /* GameBoardViewInput.swift in Sources */,
 				A94EC768253CD92400EAF6B1 /* GamePresenter.swift in Sources */,
 				A94EC73E253CD6BC00EAF6B1 /* GameViewController.swift in Sources */,
+				A94EC7A12540AFB500EAF6B1 /* GameBoardPresenter.swift in Sources */,
 				A94EC765253CD8B400EAF6B1 /* GamePresenterProtocols.swift in Sources */,
+				A94EC78C253F6E6200EAF6B1 /* Board.swift in Sources */,
 				A94EC762253CD89800EAF6B1 /* GameViewInput.swift in Sources */,
 				A94EC73A253CD6BC00EAF6B1 /* AppDelegate.swift in Sources */,
 				A94EC754253CD73900EAF6B1 /* AppCoordinator.swift in Sources */,
 				A94EC76E253CD9CF00EAF6B1 /* GameInteractor.swift in Sources */,
 				A94EC751253CD72800EAF6B1 /* AppInteractor.swift in Sources */,
 				A94EC778253CDBAF00EAF6B1 /* Circle.swift in Sources */,
+				A94EC79A2540AECB00EAF6B1 /* GameBoardView.swift in Sources */,
 				A94EC73C253CD6BC00EAF6B1 /* SceneDelegate.swift in Sources */,
 				A94EC76B253CD9A000EAF6B1 /* GameInteractorInput.swift in Sources */,
 				A94EC774253CDAC600EAF6B1 /* GameAssembly.swift in Sources */,
@@ -399,6 +551,7 @@
 		};
 		A94EC74B253CD6BF00EAF6B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8708DC216F78253B29EF488 /* Pods-Connect-4.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -418,6 +571,7 @@
 		};
 		A94EC74C253CD6BF00EAF6B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE0BE67B5F7576D690D51D91 /* Pods-Connect-4.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

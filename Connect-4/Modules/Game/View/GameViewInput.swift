@@ -7,5 +7,6 @@
 
 // Presenter to View
 protocol GameViewInput: class {
-    
+    func addNewCoin(frame: (x: Float, y: Float, width: Float, height: Float))
+    func resetBoard()
 }
