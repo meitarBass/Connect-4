@@ -9,13 +9,13 @@ import UIKit
 
 protocol GameRouterProtocol {
     var view: UIViewController? { get set }
-    func gameFinished()
+    func gameFinished(player: Player)
 }
 
 class GameRouter: GameRouterProtocol {
     weak var view: UIViewController?
     
-    func gameFinished() {
+    func gameFinished(player: Player) {
 //        let gameFinishedView = GameFinishedAssembly.assemble()
 //        view?.navigationController?.pushViewController(gameFinishedView, animated: true)
     }

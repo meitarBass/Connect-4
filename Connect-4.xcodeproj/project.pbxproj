@@ -24,12 +24,7 @@
 		A94EC774253CDAC600EAF6B1 /* GameAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC773253CDAC600EAF6B1 /* GameAssembly.swift */; };
 		A94EC778253CDBAF00EAF6B1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC777253CDBAF00EAF6B1 /* Circle.swift */; };
 		A94EC78C253F6E6200EAF6B1 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC78B253F6E6200EAF6B1 /* Board.swift */; };
-		A94EC79A2540AECB00EAF6B1 /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7992540AECB00EAF6B1 /* GameBoardView.swift */; };
-		A94EC79E2540AF7700EAF6B1 /* GameBoardViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC79D2540AF7700EAF6B1 /* GameBoardViewInput.swift */; };
-		A94EC7A12540AFB500EAF6B1 /* GameBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7A02540AFB500EAF6B1 /* GameBoardPresenter.swift */; };
-		A94EC7A42540AFC000EAF6B1 /* GameBoardPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7A32540AFC000EAF6B1 /* GameBoardPresenterProtocols.swift */; };
-		A94EC7A92540B04900EAF6B1 /* GameBoardInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7A82540B04900EAF6B1 /* GameBoardInteractorInput.swift */; };
-		A94EC7AC2540B05200EAF6B1 /* GameBoardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7AB2540B05200EAF6B1 /* GameBoardInteractor.swift */; };
+		A94EC7B1254139C900EAF6B1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC7B0254139C900EAF6B1 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,12 +46,7 @@
 		A94EC773253CDAC600EAF6B1 /* GameAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAssembly.swift; sourceTree = "<group>"; };
 		A94EC777253CDBAF00EAF6B1 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		A94EC78B253F6E6200EAF6B1 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		A94EC7992540AECB00EAF6B1 /* GameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
-		A94EC79D2540AF7700EAF6B1 /* GameBoardViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardViewInput.swift; sourceTree = "<group>"; };
-		A94EC7A02540AFB500EAF6B1 /* GameBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardPresenter.swift; sourceTree = "<group>"; };
-		A94EC7A32540AFC000EAF6B1 /* GameBoardPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardPresenterProtocols.swift; sourceTree = "<group>"; };
-		A94EC7A82540B04900EAF6B1 /* GameBoardInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardInteractorInput.swift; sourceTree = "<group>"; };
-		A94EC7AB2540B05200EAF6B1 /* GameBoardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardInteractor.swift; sourceTree = "<group>"; };
+		A94EC7B0254139C900EAF6B1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		AD77DC9649EE3FC53A89CABB /* Pods_Connect_4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8708DC216F78253B29EF488 /* Pods-Connect-4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect-4.debug.xcconfig"; path = "Target Support Files/Pods-Connect-4/Pods-Connect-4.debug.xcconfig"; sourceTree = "<group>"; };
 		FE0BE67B5F7576D690D51D91 /* Pods-Connect-4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect-4.release.xcconfig"; path = "Target Support Files/Pods-Connect-4/Pods-Connect-4.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +93,7 @@
 		A94EC738253CD6BC00EAF6B1 /* Connect-4 */ = {
 			isa = PBXGroup;
 			children = (
+				A94EC7AF254139C000EAF6B1 /* Entities */,
 				A94EC757253CD82100EAF6B1 /* Base */,
 				A94EC756253CD81700EAF6B1 /* Modules */,
 				A94EC74F253CD71A00EAF6B1 /* App */,
@@ -127,7 +118,6 @@
 		A94EC756253CD81700EAF6B1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				A94EC7922540AE9B00EAF6B1 /* GameBoard */,
 				A94EC758253CD82800EAF6B1 /* Game */,
 			);
 			path = Modules;
@@ -213,65 +203,12 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
-		A94EC7922540AE9B00EAF6B1 /* GameBoard */ = {
+		A94EC7AF254139C000EAF6B1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				A94EC7982540AEBA00EAF6B1 /* View */,
-				A94EC7972540AEB600EAF6B1 /* Managers */,
-				A94EC7962540AEB200EAF6B1 /* Presenter */,
-				A94EC7952540AEAD00EAF6B1 /* Interactor */,
-				A94EC7942540AEA700EAF6B1 /* Router */,
-				A94EC7932540AEA300EAF6B1 /* Assembly */,
+				A94EC7B0254139C900EAF6B1 /* Player.swift */,
 			);
-			path = GameBoard;
-			sourceTree = "<group>";
-		};
-		A94EC7932540AEA300EAF6B1 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
-		A94EC7942540AEA700EAF6B1 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		A94EC7952540AEAD00EAF6B1 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				A94EC7A82540B04900EAF6B1 /* GameBoardInteractorInput.swift */,
-				A94EC7AB2540B05200EAF6B1 /* GameBoardInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		A94EC7962540AEB200EAF6B1 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				A94EC7A02540AFB500EAF6B1 /* GameBoardPresenter.swift */,
-				A94EC7A32540AFC000EAF6B1 /* GameBoardPresenterProtocols.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		A94EC7972540AEB600EAF6B1 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		A94EC7982540AEBA00EAF6B1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A94EC7992540AECB00EAF6B1 /* GameBoardView.swift */,
-				A94EC79D2540AF7700EAF6B1 /* GameBoardViewInput.swift */,
-			);
-			path = View;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		C25EBD8456156CB7FFD57571 /* Pods */ = {
@@ -397,13 +334,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A94EC771253CDA4400EAF6B1 /* GameRouter.swift in Sources */,
-				A94EC7AC2540B05200EAF6B1 /* GameBoardInteractor.swift in Sources */,
-				A94EC7A42540AFC000EAF6B1 /* GameBoardPresenterProtocols.swift in Sources */,
-				A94EC7A92540B04900EAF6B1 /* GameBoardInteractorInput.swift in Sources */,
-				A94EC79E2540AF7700EAF6B1 /* GameBoardViewInput.swift in Sources */,
 				A94EC768253CD92400EAF6B1 /* GamePresenter.swift in Sources */,
 				A94EC73E253CD6BC00EAF6B1 /* GameViewController.swift in Sources */,
-				A94EC7A12540AFB500EAF6B1 /* GameBoardPresenter.swift in Sources */,
 				A94EC765253CD8B400EAF6B1 /* GamePresenterProtocols.swift in Sources */,
 				A94EC78C253F6E6200EAF6B1 /* Board.swift in Sources */,
 				A94EC762253CD89800EAF6B1 /* GameViewInput.swift in Sources */,
@@ -412,9 +344,9 @@
 				A94EC76E253CD9CF00EAF6B1 /* GameInteractor.swift in Sources */,
 				A94EC751253CD72800EAF6B1 /* AppInteractor.swift in Sources */,
 				A94EC778253CDBAF00EAF6B1 /* Circle.swift in Sources */,
-				A94EC79A2540AECB00EAF6B1 /* GameBoardView.swift in Sources */,
 				A94EC73C253CD6BC00EAF6B1 /* SceneDelegate.swift in Sources */,
 				A94EC76B253CD9A000EAF6B1 /* GameInteractorInput.swift in Sources */,
+				A94EC7B1254139C900EAF6B1 /* Player.swift in Sources */,
 				A94EC774253CDAC600EAF6B1 /* GameAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

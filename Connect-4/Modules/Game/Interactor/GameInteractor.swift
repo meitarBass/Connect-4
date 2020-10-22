@@ -11,7 +11,7 @@ final class GameInteractor: GameInteractorInput {
     
     weak var presenter: GamePresenterInput?
     
-    func tryAddNewCoin(atX x: Float, boardState: [[Circle]], boardStats: BoardSizes) {
+    func tryAddNewCoin(atX x: Float, boardState: [[Circle]], boardStats: BoardSizes, player: Player) {
         guard let circleWidthHeight = boardStats.circleWidthHeight,
               let coinIndex = getCoinIndexXY(boardState: boardState,
                                            boardStats: boardStats, atX: x),
@@ -23,7 +23,12 @@ final class GameInteractor: GameInteractorInput {
                                  width: circleWidthHeight, height: circleWidthHeight)
         
         var board = boardState
-        board[coinIndex.0].append(Circle(frame: circleFrame, color: .green,
+        var player = player
+        player.getColor()
+        
+        guard let color = player.color else { return }
+        
+        board[coinIndex.0].append(Circle(frame: circleFrame, color: color,
                                                  radius: circleWidthHeight / 2))
         presenter?.addedCoinSuccessfuly(atX: xPos, atY: yPos, board: board)
     }

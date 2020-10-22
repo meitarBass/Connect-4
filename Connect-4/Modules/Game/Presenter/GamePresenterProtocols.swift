@@ -7,7 +7,6 @@
 
 // View to Presenter
 protocol GamePresenterProtocol: class {
-    func viewDidLoad()
     func resetBoard()
     func handleBoardTap(atX x: Float, atY y: Float)
     
@@ -17,6 +16,7 @@ protocol GamePresenterProtocol: class {
 // Interactor to Presenter
 protocol GamePresenterInput: class {
     func addedCoinSuccessfuly(atX x: Float, atY y: Float, board: [[Circle]])
+    func someoneWon(winningPlayer: Player?)
 }
 
 // Manager to Presenter

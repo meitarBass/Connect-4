@@ -42,7 +42,6 @@ class Board: UIImageView {
         super.init(frame: frame)
         self.image = UIImage(named: "gameBoard")
         self.contentMode = .scaleAspectFit
-        self.backgroundColor = .systemPink
     }
     
     required init?(coder: NSCoder) {

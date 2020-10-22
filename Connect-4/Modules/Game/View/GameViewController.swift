@@ -20,8 +20,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .white
-        
         setupUI()
         makeConstraints()
     
@@ -35,6 +33,7 @@ class GameViewController: UIViewController {
     }
     
     func setupUI() {
+        self.view.backgroundColor = .white
         self.view.addSubview(gameBoard)
     }
     
@@ -59,17 +58,26 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: GameViewInput {
-    func addNewCoin(frame: (x: Float, y: Float, width: Float, height: Float)) {
-        let location = CGPoint(x: CGFloat(frame.x), y: CGFloat(frame.y))
+    func addNewCoin(frame: (x: Float, y: Float, width: Float, height: Float), color: UIColor) {
+        guard let circleHeight = self.gameBoard.boardSizes.circleWidthHeight else { return }
+        let yMin = self.gameBoard.frame.minY - circleHeight
+        let location = CGPoint(x: CGFloat(frame.x), y: yMin)
         let size = CGSize(width: CGFloat(frame.width), height: CGFloat(frame.height))
         
         let coin = Circle(frame: CGRect(origin: location, size: size),
-                          color: .green,
+                          color: color,
                           radius: size.width / 2)
-        self.view.addSubview(coin)
+        self.view.insertSubview(coin, at: 0)
+        animateNewCoin(x: frame.x, yMax: frame.y, coin: coin)
     }
     
     func resetBoard() {
         
+    }
+    
+    private func animateNewCoin(x: Float, yMax: Float, coin: Circle) {
+        UIView.animate(withDuration: 1.0) {
+            coin.frame.origin = CGPoint(x: CGFloat(x), y: CGFloat(yMax))
+        } completion: { _ in }
     }
 }

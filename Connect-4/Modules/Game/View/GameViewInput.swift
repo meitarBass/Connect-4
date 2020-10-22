@@ -5,8 +5,10 @@
 //  Created by Meitar Basson on 18/10/2020.
 //
 
+import UIKit
+
 // Presenter to View
 protocol GameViewInput: class {
-    func addNewCoin(frame: (x: Float, y: Float, width: Float, height: Float))
+    func addNewCoin(frame: (x: Float, y: Float, width: Float, height: Float), color: UIColor)
     func resetBoard()
 }

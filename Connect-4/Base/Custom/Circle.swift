@@ -12,9 +12,6 @@ class Circle: UIView {
     private var radius: CGFloat?
     private var color: UIColor?
     
-    private var xLoction: Int?
-    private var yLocation: Int?
-    
     private var circlePath: CGPath?
     var circleLayer: CAShapeLayer?
     
