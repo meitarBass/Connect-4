@@ -36,7 +36,6 @@ class GameViewController: UIViewController {
     
     func setupUI() {
         self.view.addSubview(gameBoard)
-        
     }
     
     func makeConstraints() {
@@ -52,6 +51,7 @@ class GameViewController: UIViewController {
         if gestureRecognizer.state == UIGestureRecognizer.State.recognized
         {
             let location = gestureRecognizer.location(in: gestureRecognizer.view)
+            print(location.y)
             presenter?.handleBoardTap(atX: Float(location.x), atY: Float(location.y))
         }
     }

@@ -36,9 +36,6 @@ final class GameInteractor: GameInteractorInput {
         else { return nil }
         
         let indexX = Int((CGFloat(x) - leftRightGap - boardStats.imageGapSides) / (circleGap + circleWidthHeight))
-        
-        print(indexX)
-        
         let indexY = boardState[Int(indexX)].count
         
         if indexY < 6 {

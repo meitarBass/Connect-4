@@ -41,8 +41,8 @@ class Board: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.image = UIImage(named: "gameBoard")
-        self.contentMode = .scaleAspectFill
-        self.backgroundColor = .cyan
+        self.contentMode = .scaleAspectFit
+        self.backgroundColor = .systemPink
     }
     
     required init?(coder: NSCoder) {
@@ -67,8 +67,11 @@ extension Board: BoardProtocol {
     }
     
     func calculateTopBottomGap() {
-        guard let circleWidth = self.boardSizes.circleWidthHeight else { return }
-        self.boardSizes.topBottomGap = circleWidth * appearance.topBottomGapToCircleWidthRation
+        guard let circleWidth = self.boardSizes.circleWidthHeight,
+              let circleGap = self.boardSizes.circlesGap
+        else { return }
+        let imgFrameHeight = self.frame.height
+        self.boardSizes.topBottomGap = (imgFrameHeight - (6 * circleWidth + 5 * circleGap)) / 2
     }
     
     func calculateLeftRightGap() {
