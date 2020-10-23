@@ -23,6 +23,10 @@ class GamePresenter {
 // View to Presenter
 extension GamePresenter: GamePresenterProtocol {
     
+    func viewDidLoad() {
+        resetBoard()
+    }
+    
     func resetBoard() {
         let newBoard = [[Circle](), [Circle](), [Circle](), [Circle](), [Circle](), [Circle](), [Circle]()]
         self.board = newBoard
@@ -36,7 +40,8 @@ extension GamePresenter: GamePresenterProtocol {
 
 // Interactor to Presenter
 extension GamePresenter: GamePresenterInput {
-    func addedCoinSuccessfuly(atX x: Float, atY y: Float, board: [[Circle]]) {
+    func addedCoinSuccessfuly(atX x: Float, atY y: Float, board: [[Circle]],
+                              coinIndex: (x: Int, y: Int)) {
         guard let size = boardStats?.circleWidthHeight else { return }
         let frame = (x, y, Float(size), Float(size))
         self.board = board
@@ -51,9 +56,11 @@ extension GamePresenter: GamePresenterInput {
             player.type = .computer
         }
         player.getColor()
+        
+        interactor?.checkIfSomeoneWon(board: board, lastCoinIndex: coinIndex)
     }
     
-    func someoneWon(winningPlayer: Player?) {
+    func playerWon(winningPlayer: Player?) {
         // MARK: Navigate to new VC and announce winner
         guard let player = winningPlayer else { return }
         router?.gameFinished(player: player)

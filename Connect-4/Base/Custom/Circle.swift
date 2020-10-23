@@ -56,4 +56,9 @@ class Circle: UIView {
         return layer
     }
     
+    func returnColor() -> UIColor? {
+        guard let color = color else { return nil }
+        return color
+    }
+    
 }

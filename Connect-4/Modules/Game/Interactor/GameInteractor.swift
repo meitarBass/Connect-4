@@ -30,9 +30,33 @@ final class GameInteractor: GameInteractorInput {
         
         board[coinIndex.0].append(Circle(frame: circleFrame, color: color,
                                                  radius: circleWidthHeight / 2))
-        presenter?.addedCoinSuccessfuly(atX: xPos, atY: yPos, board: board)
+        presenter?.addedCoinSuccessfuly(atX: xPos, atY: yPos, board: board, coinIndex: (coinIndex.0, coinIndex.1))
     }
     
+    func checkIfSomeoneWon(board: [[Circle]], lastCoinIndex: (x: Int, y: Int)) -> Bool {
+        
+        var didSomeoneWin = false
+        
+        // MARK: Check for winning row
+        var row: [Circle] = [Circle]()
+        for column in board {
+            if column.count - 1 >= lastCoinIndex.y {
+                row.append(column[lastCoinIndex.y])
+            }
+        }
+        
+        didSomeoneWin = checkRow(row: row)
+        
+        // MARK: Check for winning Column
+        didSomeoneWin = checkColumn(column: board[lastCoinIndex.x])
+        
+        print(didSomeoneWin)
+        
+        return didSomeoneWin
+    }
+}
+
+extension GameInteractor {
     private func getCoinIndexXY(boardState: [[Circle]], boardStats: BoardSizes,
                               atX x: Float) -> (Int, Int)? {
         guard let circleWidthHeight = boardStats.circleWidthHeight,
@@ -70,5 +94,49 @@ final class GameInteractor: GameInteractorInput {
         
         let xPos = boardStats.imageGapSides + leftRightGap + (circleGap + circleSize) * CGFloat(xIndex)
         return Float(xPos)
+    }
+    
+    private func checkRow(row: [Circle]) -> Bool {
+        var countIdenticalCoins = 0
+        for (index, _) in row.enumerated() {
+            if index < row.count - 1 {
+                if row[index].returnColor() == row[index + 1].returnColor() {
+                    countIdenticalCoins += 1
+                } else {
+                    countIdenticalCoins = 0
+                }
+            }
+        }
+        
+        if countIdenticalCoins >= 3 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func checkColumn(column: [Circle]) -> Bool {
+        
+        // MARK: Not enough coins to win
+        if column.count < 4 {
+            return false
+        }
+        
+        var countIdenticalCoins = 0
+        for (index, _) in column.enumerated() {
+            if index < column.count - 1 {
+                if column[index].returnColor() == column[index + 1].returnColor() {
+                    countIdenticalCoins += 1
+                } else {
+                    countIdenticalCoins = 0
+                }
+            }
+        }
+        
+        if countIdenticalCoins >= 3 {
+            return true
+        } else {
+            return false
+        }
     }
 }

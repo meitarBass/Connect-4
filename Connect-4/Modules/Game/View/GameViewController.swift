@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        presenter?.viewDidLoad()
         setupUI()
         makeConstraints()
     
@@ -33,7 +33,7 @@ class GameViewController: UIViewController {
     }
     
     func setupUI() {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = #colorLiteral(red: 0.8446564078, green: 0.5145705342, blue: 1, alpha: 0.3)
         self.view.addSubview(gameBoard)
     }
     
@@ -46,11 +46,9 @@ class GameViewController: UIViewController {
     }
 
     @objc func getPoint(gestureRecognizer: UITapGestureRecognizer) {
-        print("tap working")
         if gestureRecognizer.state == UIGestureRecognizer.State.recognized
         {
             let location = gestureRecognizer.location(in: gestureRecognizer.view)
-            print(location.y)
             presenter?.handleBoardTap(atX: Float(location.x), atY: Float(location.y))
         }
     }

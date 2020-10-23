@@ -9,14 +9,15 @@
 protocol GamePresenterProtocol: class {
     func resetBoard()
     func handleBoardTap(atX x: Float, atY y: Float)
-    
+    func viewDidLoad()
     var boardStats: BoardSizes? { get set }
 }
 
 // Interactor to Presenter
 protocol GamePresenterInput: class {
-    func addedCoinSuccessfuly(atX x: Float, atY y: Float, board: [[Circle]])
-    func someoneWon(winningPlayer: Player?)
+    func addedCoinSuccessfuly(atX x: Float, atY y: Float, board: [[Circle]],
+                              coinIndex: (x: Int, y :Int))
+    func playerWon(winningPlayer: Player?)
 }
 
 // Manager to Presenter
