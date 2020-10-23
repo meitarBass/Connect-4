@@ -17,6 +17,60 @@ class GameViewController: BaseViewController {
         return board
     }()
     
+    private lazy var player1ImageView: UIImageView = {
+        let imgView = UIImageView(frame: .zero)
+        imgView.contentMode = .scaleAspectFit
+        imgView.image = UIImage(named: "bluePerson")
+        imgView.snp.makeConstraints { (make) in
+            make.height.equalTo(60)
+        }
+        return imgView
+    }()
+    
+    private lazy var player1Title: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont(name: "Montserrat-Bold", size: 16)
+        label.text = "Player 1"
+        label.textColor = .white
+        label.textAlignment = .left
+        return label
+    }()
+    
+    private lazy var player1Stack: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [player1ImageView, player1Title])
+         sv.distribution = .equalCentering
+         sv.spacing = 8
+         sv.axis = .horizontal
+         return sv
+    }()
+    
+    private lazy var player2ImageView: UIImageView = {
+        let imgView = UIImageView(frame: .zero)
+        imgView.contentMode = .scaleAspectFit
+        imgView.image = UIImage(named: "redPerson")
+        imgView.snp.makeConstraints { (make) in
+            make.height.equalTo(60)
+        }
+        return imgView
+    }()
+    
+    private lazy var player2Title: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont(name: "Montserrat-Bold", size: 16)
+        label.text = "Player 2"
+        label.textColor = .white
+        label.textAlignment = .left
+        return label
+    }()
+    
+    private lazy var player2Stack: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [player2ImageView, player2Title])
+         sv.distribution = .equalCentering
+         sv.spacing = 8
+         sv.axis = .horizontal
+         return sv
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         print("Appear")
     }
@@ -40,6 +94,8 @@ class GameViewController: BaseViewController {
     override func setUpUI() {
         super.setUpUI()
         self.view.addSubview(gameBoard)
+        self.view.addSubview(player1Stack)
+        self.view.addSubview(player2Stack)
     }
     
     override func makeConstraints() {
@@ -48,6 +104,20 @@ class GameViewController: BaseViewController {
             make.centerX.centerY.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(self.gameBoard.snp.width).multipliedBy(0.883)
+        }
+        
+        self.player1Stack.snp.makeConstraints { (make) in
+            make.leading.equalTo(gameBoard.snp.leading)
+            make.bottom.equalTo(gameBoard.snp.top).inset(-24)
+            make.width.equalTo(100)
+            make.height.equalTo(60)
+        }
+        
+        self.player2Stack.snp.makeConstraints { (make) in
+            make.trailing.equalTo(gameBoard.snp.trailing)
+            make.bottom.equalTo(gameBoard.snp.top).inset(-24)
+            make.width.equalTo(100)
+            make.height.equalTo(60)
         }
     }
 

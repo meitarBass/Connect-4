@@ -18,9 +18,9 @@ class AppCoordinator {
 // MARK: Home page case
 extension AppCoordinator {
     
-    private func createGraphsVC() -> UINavigationController {
+    private func createGraphsVC() -> UIViewController {
         let homeVC = GameAssembly.assemble()
-        return UINavigationController(rootViewController: homeVC)
+        return homeVC
     }
 }
 

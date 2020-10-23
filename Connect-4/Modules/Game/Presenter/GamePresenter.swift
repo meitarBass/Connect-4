@@ -19,7 +19,7 @@ class GamePresenter {
     
     private var board: [[Circle]] = [[Circle](), [Circle](), [Circle](), [Circle](), [Circle](), [Circle](), [Circle]()]
     
-    private var player = Player(type: .human, color: .blue)
+    private var player = Player(type: .human, color: #colorLiteral(red: 0, green: 0.4274509804, blue: 0.9411764706, alpha: 1))
 }
 
 // View to Presenter

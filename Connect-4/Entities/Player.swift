@@ -17,9 +17,9 @@ struct Player {
         switch type {
         
         case .computer:
-            self.color = UIColor.red
+            self.color = #colorLiteral(red: 0.8156862745, green: 0.007843137255, blue: 0.1058823529, alpha: 1)
         case .human:
-            self.color = UIColor.blue
+            self.color = #colorLiteral(red: 0, green: 0.4274509804, blue: 0.9411764706, alpha: 1)
         }
     }
 }
