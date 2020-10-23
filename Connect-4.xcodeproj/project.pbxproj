@@ -72,6 +72,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A930A37225438AAA002534CC /* GameFinished */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GameFinished;
+			sourceTree = "<group>";
+		};
 		A94EC72D253CD6BC00EAF6B1 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +125,7 @@
 		A94EC756253CD81700EAF6B1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A930A37225438AAA002534CC /* GameFinished */,
 				A94EC758253CD82800EAF6B1 /* Game */,
 			);
 			path = Modules;

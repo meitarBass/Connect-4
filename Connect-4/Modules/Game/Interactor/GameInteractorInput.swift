@@ -7,5 +7,5 @@
 
 protocol GameInteractorInput {
     func tryAddNewCoin(atX x: Float, boardState: [[Circle]], boardStats: BoardSizes, player: Player)
-    func checkIfSomeoneWon(board: [[Circle]], lastCoinIndex: (x: Int, y: Int)) -> Bool
+    func checkIfSomeoneWon(board: [[Circle]], lastCoinIndex: (x: Int, y: Int), player: Player)
 }

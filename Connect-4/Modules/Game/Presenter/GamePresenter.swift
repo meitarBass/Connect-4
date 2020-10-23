@@ -57,7 +57,7 @@ extension GamePresenter: GamePresenterInput {
         }
         player.getColor()
         
-        interactor?.checkIfSomeoneWon(board: board, lastCoinIndex: coinIndex)
+        interactor?.checkIfSomeoneWon(board: board, lastCoinIndex: coinIndex, player: player)
     }
     
     func playerWon(winningPlayer: Player?) {

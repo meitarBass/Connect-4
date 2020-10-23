@@ -33,9 +33,7 @@ final class GameInteractor: GameInteractorInput {
         presenter?.addedCoinSuccessfuly(atX: xPos, atY: yPos, board: board, coinIndex: (coinIndex.0, coinIndex.1))
     }
     
-    func checkIfSomeoneWon(board: [[Circle]], lastCoinIndex: (x: Int, y: Int)) -> Bool {
-        
-        var didSomeoneWin = false
+    func checkIfSomeoneWon(board: [[Circle]], lastCoinIndex: (x: Int, y: Int), player: Player) {
         
         // MARK: Check for winning row
         var row: [Circle] = [Circle]()
@@ -45,14 +43,9 @@ final class GameInteractor: GameInteractorInput {
             }
         }
         
-        didSomeoneWin = checkRow(row: row)
-        
-        // MARK: Check for winning Column
-        didSomeoneWin = checkColumn(column: board[lastCoinIndex.x])
-        
-        print(didSomeoneWin)
-        
-        return didSomeoneWin
+        if checkRow(row: row) || checkColumn(column: board[lastCoinIndex.x]) || checkSlantUp(board: board, lastCoinIndex: lastCoinIndex) || checkSlantDown(board: board, lastCoinIndex: lastCoinIndex) {
+            presenter?.playerWon(winningPlayer: player)
+        }
     }
 }
 
@@ -108,11 +101,7 @@ extension GameInteractor {
             }
         }
         
-        if countIdenticalCoins >= 3 {
-            return true
-        } else {
-            return false
-        }
+        return checkIfEnoughIdenticalCoins(countIdenticalCoins: countIdenticalCoins, minIdentical: 3)
     }
     
     private func checkColumn(column: [Circle]) -> Bool {
@@ -133,7 +122,61 @@ extension GameInteractor {
             }
         }
         
-        if countIdenticalCoins >= 3 {
+        return checkIfEnoughIdenticalCoins(countIdenticalCoins: countIdenticalCoins, minIdentical: 3)
+    }
+        
+    private func checkSlantUp(board: [[Circle]], lastCoinIndex: (x: Int, y: Int)) -> Bool {
+        var countIdenticalCoins = 0
+        let originPoint: (x: Int, y: Int) = (lastCoinIndex.x - lastCoinIndex.y,
+                                             lastCoinIndex.y - lastCoinIndex.x)
+        
+        for (index, column) in board.enumerated() {
+            // MARK: Check only relevant coins to last move, might not be neccessary?
+            if lastCoinIndex.x - index <= 3 && lastCoinIndex.x - index >= -3 {
+                // MARK: Check if there's a coin in the next row
+                if board[index].count > index + originPoint.y && index + originPoint.y >= 0 {
+                    if column[index + originPoint.y].returnColor() == board[lastCoinIndex.x][lastCoinIndex.y].returnColor() {
+                        countIdenticalCoins += 1
+                    } else {
+                        countIdenticalCoins = 0
+                    }
+                } else {
+                    if countIdenticalCoins < 4 {
+                        countIdenticalCoins = 0
+                    }
+                }
+            }
+        }
+        
+        return checkIfEnoughIdenticalCoins(countIdenticalCoins: countIdenticalCoins, minIdentical: 4)
+    }
+    
+    private func checkSlantDown(board: [[Circle]], lastCoinIndex: (x: Int, y: Int)) -> Bool {
+        var countIdenticalCoins = 0
+        let originX = lastCoinIndex.x + lastCoinIndex.y - 5
+        let originY = lastCoinIndex.x + lastCoinIndex.y
+        
+        let originPoint: (x: Int, y: Int) = (max(originX, 0), min(originY, 5))
+        var difference = 0
+        
+        for (index , _) in board.enumerated() {
+            if index >= originPoint.x {
+                if board[originPoint.x + difference].count - 1 >= originPoint.y - difference && originPoint.y - difference >= 0 {
+                    if board[originPoint.x + difference][originPoint.y - difference].returnColor() == board[lastCoinIndex.x][lastCoinIndex.y].returnColor() {
+                        countIdenticalCoins += 1
+                    } else {
+                        countIdenticalCoins = 0
+                    }
+                }
+                difference += 1
+            }
+        }
+        
+        return checkIfEnoughIdenticalCoins(countIdenticalCoins: countIdenticalCoins, minIdentical: 4)
+    }
+    
+    private func checkIfEnoughIdenticalCoins(countIdenticalCoins: Int, minIdentical: Int) -> Bool {
+        if countIdenticalCoins >= minIdentical {
             return true
         } else {
             return false
