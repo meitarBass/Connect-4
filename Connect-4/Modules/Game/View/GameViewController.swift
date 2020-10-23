@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class GameViewController: UIViewController {
+class GameViewController: BaseViewController {
     
     var presenter: GamePresenterProtocol?
 
@@ -16,11 +16,15 @@ class GameViewController: UIViewController {
         let board = Board(frame: .zero)
         return board
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("Appear")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
-        setupUI()
+        setUpUI()
         makeConstraints()
     
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(getPoint))
@@ -30,14 +34,16 @@ class GameViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         gameBoard.calculateCircleWidthHeight()
         presenter?.boardStats = gameBoard.boardSizes
+        presenter?.controller = self
     }
     
-    func setupUI() {
-        self.view.backgroundColor = #colorLiteral(red: 0.8446564078, green: 0.5145705342, blue: 1, alpha: 0.3)
+    override func setUpUI() {
+        super.setUpUI()
         self.view.addSubview(gameBoard)
     }
     
-    func makeConstraints() {
+    override func makeConstraints() {
+        super.makeConstraints()
         self.gameBoard.snp.makeConstraints { (make) in
             make.centerX.centerY.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(16)
@@ -68,14 +74,23 @@ extension GameViewController: GameViewInput {
         self.view.insertSubview(coin, at: 0)
         animateNewCoin(x: frame.x, yMax: frame.y, coin: coin)
     }
-    
-    func resetBoard() {
         
-    }
-    
     private func animateNewCoin(x: Float, yMax: Float, coin: Circle) {
         UIView.animate(withDuration: 1.0) {
             coin.frame.origin = CGPoint(x: CGFloat(x), y: CGFloat(yMax))
         } completion: { _ in }
+    }
+}
+
+extension GameViewController: GameViewInputGF {
+    func resetBoard() {
+        presenter?.resetBoard()
+        for subview in view.subviews {
+            subview.removeFromSuperview()
+        }
+        
+        presenter?.viewDidLoad()
+        setUpUI()
+        makeConstraints()
     }
 }

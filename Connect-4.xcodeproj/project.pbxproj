@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		17D3704E27A8923735FCC580 /* Pods_Connect_4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD77DC9649EE3FC53A89CABB /* Pods_Connect_4.framework */; };
+		A930A37525438B3F002534CC /* GameFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A930A37425438B3F002534CC /* GameFinishedViewController.swift */; };
+		A930A37B25438D25002534CC /* GameFinishedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A930A37A25438D25002534CC /* GameFinishedAssembly.swift */; };
+		A930A38025438F90002534CC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A930A37F25438F90002534CC /* BaseViewController.swift */; };
+		A930A38325439514002534CC /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A930A38225439513002534CC /* Montserrat-Bold.otf */; };
 		A94EC73A253CD6BC00EAF6B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC739253CD6BC00EAF6B1 /* AppDelegate.swift */; };
 		A94EC73C253CD6BC00EAF6B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC73B253CD6BC00EAF6B1 /* SceneDelegate.swift */; };
 		A94EC73E253CD6BC00EAF6B1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC73D253CD6BC00EAF6B1 /* GameViewController.swift */; };
@@ -28,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A930A37425438B3F002534CC /* GameFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFinishedViewController.swift; sourceTree = "<group>"; };
+		A930A37A25438D25002534CC /* GameFinishedAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFinishedAssembly.swift; sourceTree = "<group>"; };
+		A930A37F25438F90002534CC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A930A38225439513002534CC /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		A94EC736253CD6BC00EAF6B1 /* Connect-4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Connect-4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94EC739253CD6BC00EAF6B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A94EC73B253CD6BC00EAF6B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,8 +83,34 @@
 		A930A37225438AAA002534CC /* GameFinished */ = {
 			isa = PBXGroup;
 			children = (
+				A930A37325438B36002534CC /* View */,
+				A930A37925438D16002534CC /* Assembly */,
 			);
 			path = GameFinished;
+			sourceTree = "<group>";
+		};
+		A930A37325438B36002534CC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A930A37425438B3F002534CC /* GameFinishedViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A930A37925438D16002534CC /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				A930A37A25438D25002534CC /* GameFinishedAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		A930A37E25438F74002534CC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A930A37F25438F90002534CC /* BaseViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		A94EC72D253CD6BC00EAF6B1 = {
@@ -108,6 +142,7 @@
 				A94EC73B253CD6BC00EAF6B1 /* SceneDelegate.swift */,
 				A94EC742253CD6BF00EAF6B1 /* Assets.xcassets */,
 				A94EC744253CD6BF00EAF6B1 /* LaunchScreen.storyboard */,
+				A930A38225439513002534CC /* Montserrat-Bold.otf */,
 				A94EC747253CD6BF00EAF6B1 /* Info.plist */,
 			);
 			path = "Connect-4";
@@ -134,6 +169,7 @@
 		A94EC757253CD82100EAF6B1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A930A37E25438F74002534CC /* ViewController */,
 				A94EC776253CDB9D00EAF6B1 /* Custom */,
 			);
 			path = Base;
@@ -289,6 +325,7 @@
 			files = (
 				A94EC746253CD6BF00EAF6B1 /* LaunchScreen.storyboard in Resources */,
 				A94EC743253CD6BF00EAF6B1 /* Assets.xcassets in Resources */,
+				A930A38325439514002534CC /* Montserrat-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,9 +378,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A930A37525438B3F002534CC /* GameFinishedViewController.swift in Sources */,
 				A94EC771253CDA4400EAF6B1 /* GameRouter.swift in Sources */,
+				A930A37B25438D25002534CC /* GameFinishedAssembly.swift in Sources */,
 				A94EC768253CD92400EAF6B1 /* GamePresenter.swift in Sources */,
 				A94EC73E253CD6BC00EAF6B1 /* GameViewController.swift in Sources */,
+				A930A38025438F90002534CC /* BaseViewController.swift in Sources */,
 				A94EC765253CD8B400EAF6B1 /* GamePresenterProtocols.swift in Sources */,
 				A94EC78C253F6E6200EAF6B1 /* Board.swift in Sources */,
 				A94EC762253CD89800EAF6B1 /* GameViewInput.swift in Sources */,

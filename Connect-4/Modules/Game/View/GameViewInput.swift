@@ -10,5 +10,9 @@ import UIKit
 // Presenter to View
 protocol GameViewInput: class {
     func addNewCoin(frame: (x: Float, y: Float, width: Float, height: Float), color: UIColor)
+}
+
+// GameFinished to View
+protocol GameViewInputGF: class {
     func resetBoard()
 }

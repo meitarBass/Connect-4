@@ -10,7 +10,9 @@ protocol GamePresenterProtocol: class {
     func resetBoard()
     func handleBoardTap(atX x: Float, atY y: Float)
     func viewDidLoad()
+    
     var boardStats: BoardSizes? { get set }
+    var controller: GameViewController? { get set }
 }
 
 // Interactor to Presenter

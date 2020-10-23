@@ -10,6 +10,8 @@ import UIKit
 class GamePresenter {
     
     weak var view: GameViewInput?
+    weak var controller: GameViewController?
+    
     var interactor: GameInteractorInput?
     var router: GameRouterProtocol?
     
@@ -49,6 +51,8 @@ extension GamePresenter: GamePresenterInput {
         guard let playerType = player.type, let color = player.color else { return }
         view?.addNewCoin(frame: frame, color: color)
         
+        interactor?.checkIfSomeoneWon(board: board, lastCoinIndex: coinIndex, player: player)
+        
         switch playerType {
         case .computer:
             player.type = .human
@@ -56,14 +60,12 @@ extension GamePresenter: GamePresenterInput {
             player.type = .computer
         }
         player.getColor()
-        
-        interactor?.checkIfSomeoneWon(board: board, lastCoinIndex: coinIndex, player: player)
     }
     
     func playerWon(winningPlayer: Player?) {
         // MARK: Navigate to new VC and announce winner
-        guard let player = winningPlayer else { return }
-        router?.gameFinished(player: player)
+        guard let player = winningPlayer, let controller = controller else { return }
+        router?.gameFinished(player: player, controller: controller)
     }
 }
 
