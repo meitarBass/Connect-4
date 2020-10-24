@@ -19,8 +19,8 @@ Connect-4 is a the old app from our childhood played on your phone for 2 players
 
 ## Screenshots
 ![Example-Connect0](./Connect-4/Readme/Connect-4-GIF.gif)
-![Example-Connect1](./Connect-4/Readme/img1.gif)
-![Example-Connect2](./Connect-4/Readme/img2.gif)
+![Example-Connect1](./Connect-4/Readme/img1.png)
+![Example-Connect2](./Connect-4/Readme/img2.png)
 
 ## Technologies
 * Xcode 12.0
