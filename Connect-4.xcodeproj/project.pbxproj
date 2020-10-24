@@ -123,6 +123,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A930A38C25441525002534CC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A930A38225439513002534CC /* Montserrat-Bold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		A94EC72D253CD6BC00EAF6B1 = {
 			isa = PBXGroup;
 			children = (
@@ -144,15 +152,13 @@
 		A94EC738253CD6BC00EAF6B1 /* Connect-4 */ = {
 			isa = PBXGroup;
 			children = (
-				A94EC7AF254139C000EAF6B1 /* Entities */,
+				A94EC74F253CD71A00EAF6B1 /* App */,
 				A94EC757253CD82100EAF6B1 /* Base */,
 				A94EC756253CD81700EAF6B1 /* Modules */,
-				A94EC74F253CD71A00EAF6B1 /* App */,
-				A94EC739253CD6BC00EAF6B1 /* AppDelegate.swift */,
-				A94EC73B253CD6BC00EAF6B1 /* SceneDelegate.swift */,
+				A94EC7AF254139C000EAF6B1 /* Entities */,
+				A930A38C25441525002534CC /* Fonts */,
 				A94EC742253CD6BF00EAF6B1 /* Assets.xcassets */,
 				A94EC744253CD6BF00EAF6B1 /* LaunchScreen.storyboard */,
-				A930A38225439513002534CC /* Montserrat-Bold.otf */,
 				A94EC747253CD6BF00EAF6B1 /* Info.plist */,
 			);
 			path = "Connect-4";
@@ -161,6 +167,8 @@
 		A94EC74F253CD71A00EAF6B1 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				A94EC739253CD6BC00EAF6B1 /* AppDelegate.swift */,
+				A94EC73B253CD6BC00EAF6B1 /* SceneDelegate.swift */,
 				A94EC750253CD72800EAF6B1 /* AppInteractor.swift */,
 				A94EC753253CD73900EAF6B1 /* AppCoordinator.swift */,
 			);
@@ -190,7 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				A94EC75E253CD85100EAF6B1 /* View */,
-				A94EC75D253CD84D00EAF6B1 /* Managers */,
 				A94EC75C253CD84700EAF6B1 /* Presenter */,
 				A94EC75B253CD84300EAF6B1 /* Interactor */,
 				A94EC75A253CD83F00EAF6B1 /* Router */,
@@ -231,13 +238,6 @@
 				A94EC767253CD92400EAF6B1 /* GamePresenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		A94EC75D253CD84D00EAF6B1 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		A94EC75E253CD85100EAF6B1 /* View */ = {

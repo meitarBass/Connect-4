@@ -97,10 +97,14 @@ class GameViewController: BaseViewController {
          return sv
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        print("Appear")
-    }
-
+    private lazy var topStack: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [player1Stack, player2Stack])
+        sv.distribution = .fillEqually
+         sv.spacing = 16
+         sv.axis = .horizontal
+         return sv
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
@@ -120,8 +124,11 @@ class GameViewController: BaseViewController {
     override func setUpUI() {
         super.setUpUI()
         self.view.addSubview(gameBoard)
-        self.view.addSubview(player1Stack)
-        self.view.addSubview(player2Stack)
+        self.view.addSubview(topStack)
+        
+        
+//        self.view.addSubview(player1Stack)
+//        self.view.addSubview(player2Stack)
     }
     
     override func makeConstraints() {
@@ -132,19 +139,26 @@ class GameViewController: BaseViewController {
             make.height.equalTo(self.gameBoard.snp.width).multipliedBy(0.883)
         }
         
-        self.player1Stack.snp.makeConstraints { (make) in
+        self.topStack.snp.makeConstraints { (make) in
             make.leading.equalTo(gameBoard.snp.leading)
+            make.trailing.equalTo(gameBoard.snp.trailing)
             make.bottom.equalTo(gameBoard.snp.top).inset(-36)
-            make.width.equalTo(145)
             make.height.equalTo(45)
         }
         
-        self.player2Stack.snp.makeConstraints { (make) in
-            make.trailing.equalTo(gameBoard.snp.trailing)
-            make.bottom.equalTo(gameBoard.snp.top).inset(-36)
-            make.width.equalTo(145)
-            make.height.equalTo(45)
-        }
+//        self.player1Stack.snp.makeConstraints { (make) in
+//            make.leading.equalTo(gameBoard.snp.leading)
+//            make.bottom.equalTo(gameBoard.snp.top).inset(-36)
+//            make.width.equalTo(145)
+//            make.height.equalTo(45)
+//        }
+//
+//        self.player2Stack.snp.makeConstraints { (make) in
+//            make.trailing.equalTo(gameBoard.snp.trailing)
+//            make.bottom.equalTo(gameBoard.snp.top).inset(-36)
+//            make.width.equalTo(145)
+//            make.height.equalTo(45)
+//        }
         
         self.player1BottomLine.snp.makeConstraints { (make) in
             make.height.equalTo(6)

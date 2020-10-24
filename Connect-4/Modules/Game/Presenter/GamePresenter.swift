@@ -70,7 +70,3 @@ extension GamePresenter: GamePresenterInput {
         router?.gameFinished(player: player, controller: controller)
     }
 }
-
-extension GamePresenter: GameManagerDelegate {
-    
-}

@@ -21,6 +21,3 @@ protocol GamePresenterInput: class {
                               coinIndex: (x: Int, y :Int))
     func playerWon(winningPlayer: Player?)
 }
-
-// Manager to Presenter
-protocol GameManagerDelegate: class {}
