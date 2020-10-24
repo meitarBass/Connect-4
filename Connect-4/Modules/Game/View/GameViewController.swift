@@ -21,9 +21,6 @@ class GameViewController: BaseViewController {
         let imgView = UIImageView(frame: .zero)
         imgView.contentMode = .scaleAspectFit
         imgView.image = UIImage(named: "bluePerson")
-        imgView.snp.makeConstraints { (make) in
-            make.height.equalTo(60)
-        }
         return imgView
     }()
     
@@ -36,11 +33,27 @@ class GameViewController: BaseViewController {
         return label
     }()
     
-    private lazy var player1Stack: UIStackView = {
+    private lazy var player1ImgLabelStack: UIStackView = {
         let sv = UIStackView(arrangedSubviews: [player1ImageView, player1Title])
-         sv.distribution = .equalCentering
+        sv.distribution = .fillEqually
          sv.spacing = 8
          sv.axis = .horizontal
+         return sv
+    }()
+    
+    private lazy var player1BottomLine: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .white
+        view.addShadow(opacity: 0.4, radius: 0.0, offset: CGSize(width: 0, height: 3), color: .orange)
+        return view
+    }()
+    
+    private lazy var player1Stack: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [player1ImgLabelStack, player1BottomLine])
+         sv.distribution = .equalCentering
+         sv.spacing = 8
+         sv.axis = .vertical
+        sv.alignment = .leading
          return sv
     }()
     
@@ -48,9 +61,6 @@ class GameViewController: BaseViewController {
         let imgView = UIImageView(frame: .zero)
         imgView.contentMode = .scaleAspectFit
         imgView.image = UIImage(named: "redPerson")
-        imgView.snp.makeConstraints { (make) in
-            make.height.equalTo(60)
-        }
         return imgView
     }()
     
@@ -63,11 +73,27 @@ class GameViewController: BaseViewController {
         return label
     }()
     
-    private lazy var player2Stack: UIStackView = {
+    private lazy var player2ImgLabelStack: UIStackView = {
         let sv = UIStackView(arrangedSubviews: [player2ImageView, player2Title])
-         sv.distribution = .equalCentering
+         sv.distribution = .fillEqually
          sv.spacing = 8
          sv.axis = .horizontal
+         return sv
+    }()
+    
+    private lazy var player2BottomLine: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .white
+        view.addShadow(opacity: 0.0, radius: 0.0, offset: CGSize(width: 0, height: 3), color: .orange)
+        return view
+    }()
+    
+    private lazy var player2Stack: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [player2ImgLabelStack, player2BottomLine])
+         sv.distribution = .equalCentering
+         sv.spacing = 8
+         sv.axis = .vertical
+        sv.alignment = .leading
          return sv
     }()
     
@@ -108,16 +134,26 @@ class GameViewController: BaseViewController {
         
         self.player1Stack.snp.makeConstraints { (make) in
             make.leading.equalTo(gameBoard.snp.leading)
-            make.bottom.equalTo(gameBoard.snp.top).inset(-24)
-            make.width.equalTo(100)
-            make.height.equalTo(60)
+            make.bottom.equalTo(gameBoard.snp.top).inset(-36)
+            make.width.equalTo(145)
+            make.height.equalTo(45)
         }
         
         self.player2Stack.snp.makeConstraints { (make) in
             make.trailing.equalTo(gameBoard.snp.trailing)
-            make.bottom.equalTo(gameBoard.snp.top).inset(-24)
-            make.width.equalTo(100)
-            make.height.equalTo(60)
+            make.bottom.equalTo(gameBoard.snp.top).inset(-36)
+            make.width.equalTo(145)
+            make.height.equalTo(45)
+        }
+        
+        self.player1BottomLine.snp.makeConstraints { (make) in
+            make.height.equalTo(6)
+            make.width.equalTo(player1ImgLabelStack.snp.width)
+        }
+        
+        self.player2BottomLine.snp.makeConstraints { (make) in
+            make.height.equalTo(6)
+            make.width.equalTo(player1ImgLabelStack.snp.width)
         }
     }
 
@@ -149,6 +185,20 @@ extension GameViewController: GameViewInput {
         UIView.animate(withDuration: 1.0) {
             coin.frame.origin = CGPoint(x: CGFloat(x), y: CGFloat(yMax))
         } completion: { _ in }
+    }
+    
+    func switchPlayingPlayer(activePlayer: Player) {
+        guard let player = activePlayer.type else { return }
+        
+        switch player {
+        
+        case .computer:
+            player2BottomLine.layer.shadowOpacity = 0.5
+            player1BottomLine.layer.shadowOpacity = 0.0
+        case .human:
+            player2BottomLine.layer.shadowOpacity = 0.0
+            player1BottomLine.layer.shadowOpacity = 0.5
+        }
     }
 }
 

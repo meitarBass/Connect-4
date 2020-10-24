@@ -60,6 +60,8 @@ extension GamePresenter: GamePresenterInput {
             player.type = .computer
         }
         player.getColor()
+        
+        view?.switchPlayingPlayer(activePlayer: player)
     }
     
     func playerWon(winningPlayer: Player?) {

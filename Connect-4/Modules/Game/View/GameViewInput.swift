@@ -10,6 +10,7 @@ import UIKit
 // Presenter to View
 protocol GameViewInput: class {
     func addNewCoin(frame: (x: Float, y: Float, width: Float, height: Float), color: UIColor)
+    func switchPlayingPlayer(activePlayer: Player)
 }
 
 // GameFinished to View
